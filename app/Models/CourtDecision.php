@@ -34,7 +34,7 @@ class CourtDecision extends Model
     }
 
     public function tags() {
-        return $this->belongsToMany(Tag::class, 'legau_be_tpc.court_decisions_tags_to_court_decisions', 'judgement_id', 'judgement_tag_id');
+        return $this->belongsToMany(Tag::class, 'court_decisions_tags_to_court_decisions', 'judgement_id', 'judgement_tag_id');
     }
 
     public function scopeByCourts(Builder $query, array $courts): Builder

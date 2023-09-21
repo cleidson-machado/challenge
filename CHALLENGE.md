@@ -5,8 +5,18 @@ A development enviornment is also provided, cortesy of Laravel Sail - https://la
 To run it, 
 
 1) make sure you have docker in your system
-2) install the dependencies using composer and
+2) install the dependencies using composer[1] and
 3) then run: `./vendor/bin/sail up`.
+
+[1] 
+``
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
+``
 
 A database migration and some seed data is provided. Please migrate&seed.
 
