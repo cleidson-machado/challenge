@@ -30,7 +30,7 @@ The challenge is composed of two user stories:
 
 ## Acceptance criteria
 
-* Upon opening a URL on this project, the contents of a court decision are displayed.
+* Upon opening a URL on this project (`http://localhost/decisions/...`), the contents of a court decision are displayed.
 * The page should be search-engine-friendly.
 
 ## Other notes
