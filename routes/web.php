@@ -19,5 +19,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/decision/{process_number}', [CourtDecisionsController::class, 'decision'])->where('process_number', '(.*)');
 

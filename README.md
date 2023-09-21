@@ -51,14 +51,19 @@ You only need to setup a controller and a route.
 
 ## Other notes
 
-Use the GPT3 / 4 API. https://platform.openai.com/docs/api-reference/chat
-An API Key was sent in private.
+Use the GPT3 / 4 API. 
+
+See more in https://platform.openai.com/docs/api-reference/chat
+
+An API Key should be provided to you for this.
 
 # Bonus points
 
 Think how this codebase could be improved to have it production-ready.
 
 What comes to your mind? Let us know.
+
+-------------------------------------------------
 
 If you have any questions or comments, feel free to reach out.
 
