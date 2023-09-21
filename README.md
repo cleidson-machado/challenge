@@ -57,6 +57,8 @@ Use the GPT3 / 4 API.
 
 See more in https://platform.openai.com/docs/api-reference/chat
 
+OpenAI Playground: https://platform.openai.com/playground
+
 An API Key should be provided to you for this.
 
 # Bonus points
