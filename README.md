@@ -43,6 +43,8 @@ You only need to setup a controller and a route.
 
 # As a user, I want to ask questions regarding a given court decision and recieve results.
 
+![Example](Questions_cut.gif)
+
 ## Acceptance criteria
 
 * The page with the court decision field has an input field with the label "Ask a question" and submit button
