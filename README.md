@@ -8,6 +8,7 @@ To run it,
 
 1. make sure you have docker installed in your system 
 2. install the dependencies using composer[1] and 
+3. setup the `.env` file: `cp .env.example .env`
 3. then run: `./vendor/bin/sail up`.
 
 [1] 
@@ -71,4 +72,4 @@ What comes to your mind? Let us know.
 
 If you have any questions or comments, feel free to reach out.
 
-Please submit the results back via e-mail.
+Please submit the results back via e-mail or create a private repository in any code sharing service of your choice and send an invite.

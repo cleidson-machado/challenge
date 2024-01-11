@@ -52,19 +52,4 @@ class CourtDecision extends Model
         return $query->where('date', '<=', $toDate);
     }
 
-    /**
-     * Redactors are sourced from DGSI all-caps.
-     * @todo write a migration to fix this, update scraper.
-     * @param string $value
-     * @return string
-     */
-    public function getRedactorAttribute(string $value): string
-    {
-        $parts = explode(' ', $value);
-        $parts = array_map(function (string $name) {
-            return ucfirst(mb_strtolower($name));
-        }, $parts);
-
-        return implode(' ', $parts);
-    }
 }
