@@ -51,6 +51,7 @@ You only need to setup a controller and a route.
 * The page with the court decision field has an input field with the label "Ask a question" and submit button
 * By clicking the submit button, a request to a language model is sent that should answer the question.
 * The answer from the langauge model should be given back to the user.
+* Try to mimic the UX on the attached image as closely as possible.
 
 ## Other notes
 
