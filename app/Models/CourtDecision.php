@@ -27,7 +27,19 @@ class CourtDecision extends Model
 {
     protected $table = 'court_decisions_court_decisions';
 
-    protected $fillable = ['summary',  'full_text',  'court_report',  'facts',  'argumentation_parties',  'argumentation_court',  'decision','court_id', 'process_number', 'date', 'redactor', 'source'];
+    protected $fillable = [
+        'summary',  
+        'full_text',  
+        'court_report',  
+        'facts',  
+        'argumentation_parties',  
+        'argumentation_court',  
+        'decision',
+        'court_id', 
+        'process_number', 
+        'date', 
+        'redactor', 
+        'source'];
 
     public function court() {
         return $this->belongsTo('App\Models\Court');

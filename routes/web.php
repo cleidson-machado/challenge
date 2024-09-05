@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CourtDecisionsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourtDecisionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/decisions', [CourtDecisionController::class,'index'])->name('decisiontest.index');
+Route::get('/viewtest', [CourtDecisionController::class,'testViewLayout'])->name('testview.index');
 
 
 
