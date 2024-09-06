@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/decisions', [CourtDecisionController::class,'index'])->name('decisiontest.index');
 Route::get('/viewtest', [CourtDecisionController::class,'testViewLayout'])->name('testview.index');
+Route::get('/bydecision/{id}', [CourtDecisionController::class,'listbyid'])->name('decisionplus.showbyid');
 
 
 

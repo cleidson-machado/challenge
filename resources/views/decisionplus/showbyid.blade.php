@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Test Layout</title>
+    <title>Edit View</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
     crossorigin="anonymous">
@@ -23,7 +23,7 @@
             <div class="mt-4">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Processo 02B3884</a>
+                      <a class="nav-link active" aria-current="page" href="#">PRB: {{$decision->process_number}}</a>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Jurisprudências</a>
@@ -36,7 +36,7 @@
                       </ul>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link link-danger" href="#">HISTÓRICO COMPLETO DO PROCESSO</a>
+                      <a class="nav-link link-danger" href="{{$decision->source}}">CONTEÚDO ORIGINAL DO PROCESSO</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link disabled" aria-disabled="true">Status Atual: EM TRAMITAÇÃO</a>
@@ -54,15 +54,15 @@
         <div class="accordion" id="accordionExample">
 
             <div class="alert alert-primary" role="alert">
-                <b>PROCESSO:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;02B3884
+                <b>PROCESSO:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$decision->process_number}}
             </div>
 
             <div class="alert alert-light" role="alert">
-                <b>RELATOR:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MARIA DE OLIVEIRA BARROS BARCELLOS
+                <b>RELATOR:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$decision->redactor}}
             </div>
 
             <div class="alert alert-primary" role="alert">
-                <b>DECISÃO:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Concedida a Revisita
+                <b>DECISÃO:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$decision->decision}}
             </div>
 
             <div class="alert alert-light" role="alert">
@@ -83,7 +83,7 @@
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  <strong>INTEGRA da DECISSÃO:</strong> {{$decision->full_text}} 
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@
                 </h2>
                 <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    <strong>TEXTO:</strong> {{$decision->summary}} 
                   </div>
                 </div>
               </div>
