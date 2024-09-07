@@ -18,9 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/testchat', function () {
+    return view('chatboot');
+});
+
 Route::get('/decisions', [CourtDecisionController::class,'index'])->name('decisiontest.index');
 Route::get('/viewtest', [CourtDecisionController::class,'testViewLayout'])->name('testview.index');
 Route::get('/bydecision/{id}', [CourtDecisionController::class,'listbyid'])->name('decisionplus.showbyid');
 
+Route::post('/chat', 'App\Http\Controllers\ChatController');
 
 

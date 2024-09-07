@@ -109,7 +109,20 @@
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  <div>
+                    <div class="messages">
+                      <div class="left message">
+                        <p>Waiting...</p>
+                      </div>
+                    </div>
+                    <form>
+                      <div class="mb-3">
+                        <input type="text" id="message" name="message" class="form-control">
+                        <div id="messageHelp" class="form-text">Digite no campo acima seu QUESTIONAMENTO a respeito do PROCESSO e aguarde a resposta da INTELIGÊNCIA ARTIFICIAL</div>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Perguntar</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -207,6 +220,55 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
     crossorigin="anonymous">
+    </script>
+    <script>
+      //Broadcast messages
+      $("form").submit(function (event) {
+        event.preventDefault();
+    
+        //Stop empty messages
+        if ($("form #message").val().trim() === '') {
+          return;
+        }
+    
+        //Disable form
+        $("form #message").prop('disabled', true);
+        $("form button").prop('disabled', true);
+    
+        $.ajax({
+          url: "/chat",
+          method: 'POST',
+          headers: {
+            'X-CSRF-TOKEN': "{{csrf_token()}}"
+          },
+          data: {
+            "model": "gpt-3.5-turbo",
+            "content": $("form #message").val()
+          }
+        }).done(function (res) {
+    
+          //Populate sending message
+          $(".messages > .message").last().after('<div class="right message">' +
+            '<p>' + $("form #message").val() + '</p>' +
+            '<img src="https://assets.edlin.app/images/rossedlin/03/rossedlin-03-100.jpg" alt="Avatar">' +
+            '</div>');
+    
+          //Populate receiving message
+          $(".messages > .message").last().after('<div class="left message">' +
+            '<img src="https://assets.edlin.app/images/rossedlin/03/rossedlin-03-100.jpg" alt="Avatar">' +
+            '<p>' + res + '</p>' +
+            '</div>');
+    
+          //Cleanup
+          $("form #message").val('');
+          $(document).scrollTop($(document).height());
+    
+          //Enable form
+          $("form #message").prop('disabled', false);
+          $("form button").prop('disabled', false);
+        });
+      });
+    
     </script>
   </body>
 </html>
